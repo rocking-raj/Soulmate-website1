@@ -471,6 +471,27 @@ html, body {
   object-fit: cover;
   border-radius: 12px;
 }
+#hearts {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.heart-box {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 6;
+}
+
 
 
 
