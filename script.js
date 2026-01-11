@@ -293,6 +293,16 @@ window.addEventListener("load", () => {
     }, 1500);
   }
 });
+function showProposal() {
+  const box = document.getElementById("proposalBox");
+  if (box) box.style.display = "block";
+}
+
+function sayYes() {
+  alert("She said YES 💍❤️");
+}
+
+
 
 
 
