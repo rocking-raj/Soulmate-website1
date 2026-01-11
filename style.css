@@ -329,12 +329,6 @@ body.night::before {
     align-items: center;
   }
 
-  .photos img {
-    width: 50%;
-    max-width: 30px;
-    height: auto;
-  }
-
   /* ❤️ Heart Game */
   #hearts {
     flex-wrap: wrap;
@@ -370,6 +364,37 @@ html, body {
   overflow-x: hidden;
   touch-action: manipulation;
 }
+.slide {
+  box-sizing: border-box;
+  overflow: hidden;   /* 🔥 IMPORTANT */
+}
+/* 📸 PHOTO SLIDE FIX */
+.photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+
+  .photos {
+    flex-direction: column;   /* stack vertically */
+    width: 100%;
+    padding: 0;
+  }
+
+  .photos img {
+    width: 100%;
+    max-width: 280px;   /* 🔥 prevents overflow */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    border-radius: 12px;
+  }
+}
+
 
 
 
