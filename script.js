@@ -1,3 +1,8 @@
+let currentSlide = 0;
+const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
+const totalSlides = slideItems.length;
+
 document.addEventListener("DOMContentLoaded", () => {
   initMobileFeatures();
 });
@@ -178,6 +183,10 @@ function onSlideChange(index) {
 
   }
 }
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
+}
+
 
 
 function updateSlide() {
@@ -336,6 +345,23 @@ if (ft && !ft.dataset.done) {
 
   setTimeout(showProposal, 3500); // 🔥 REQUIRED
 }
+function nextSlide() {
+  if (currentSlide < totalSlides - 1) {
+    currentSlide++;
+    updateSlide();
+  }
+}
+
+function prevSlide() {
+  if (currentSlide > 0) {
+    currentSlide--;
+    updateSlide();
+  }
+}
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;
+
+
 
 
 
