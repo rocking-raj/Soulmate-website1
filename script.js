@@ -129,12 +129,18 @@ function simpleFirework() {
 }
 simpleFirework();
 function onSlideChange(index) {
-  const lastIndex = document.querySelectorAll(".slide").length - 1;
+  const lastIndex = totalSlides - 1;
+
   if (index === lastIndex) {
-    startCelebration();   // fireworks
-    startFloatingHearts(); // hearts
+    const ft = document.getElementById("finalText");
+
+    if (ft && !ft.dataset.done) {
+      ft.dataset.done = "1";
+      typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
+    }
   }
 }
+
 function startCelebration() {
   for (let i = 0; i < 20; i++) {
     const s = document.createElement("div");
@@ -357,6 +363,7 @@ function prevSlide() {
 }
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+
 
 
 
