@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   initMobileFeatures();
 });
-const heartsDiv = document.getElementById("hearts");
+let heartsDiv = null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  heartsDiv = document.getElementById("hearts");
+});
+
 
 
 if (heartsDiv) {
@@ -344,6 +349,7 @@ window.addEventListener("load", () => {
     loader.remove();
   }, 700);
 });
+
 
 
 
