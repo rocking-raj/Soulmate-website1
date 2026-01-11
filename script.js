@@ -200,13 +200,11 @@ function onSlideChange(index) {
 }
 
 
-
 function updateSlide() {
-  slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
+  const slideWidth = window.innerWidth;
+  slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
 
-  // ❤️ heart effect on every slide change
   slideHeartBurst();
-
   onSlideChange(currentSlide);
 }
 
@@ -269,6 +267,7 @@ function stopMusic() {
   if (!bgMusic) return;
   bgMusic.pause();
 }
+
 
 
 
