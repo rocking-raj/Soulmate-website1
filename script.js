@@ -363,6 +363,43 @@ function prevSlide() {
 }
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+document.addEventListener("DOMContentLoaded", () => {
+  const heartsDiv = document.getElementById("hearts");
+
+  if (!heartsDiv) return;
+
+  heartsDiv.innerHTML = "";
+
+  const surprises = [
+    { type: "text", content: "💌 You make my world brighter." },
+    { type: "text", content: "❤️ My favorite place is with you." },
+    { type: "image", content: "images/surprise1.jpg" },
+    { type: "image", content: "images/surprise2.jpg" },
+    { type: "image", content: "images/surprise3.jpg" }
+  ];
+
+  // shuffle hearts
+  surprises.sort(() => Math.random() - 0.5);
+
+  surprises.forEach(item => {
+    const heart = document.createElement("div");
+    heart.className = "heart-box";
+    heart.innerHTML = "❤️";
+
+    heart.addEventListener("click", () => {
+      heart.style.pointerEvents = "none";
+
+      if (item.type === "text") {
+        heart.innerHTML = `<p>${item.content}</p>`;
+      } else {
+        heart.innerHTML = `<img src="${item.content}" alt="">`;
+      }
+    });
+
+    heartsDiv.appendChild(heart);
+  });
+});
+
 
 
 
