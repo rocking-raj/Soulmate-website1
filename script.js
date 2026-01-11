@@ -301,6 +301,14 @@ function showProposal() {
 function sayYes() {
   alert("She said YES 💍❤️");
 }
+const noBtn = document.getElementById("noBtn");
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", () => {
+    noBtn.style.left = Math.random() * 100 - 50 + "px";
+    noBtn.style.top = Math.random() * 60 - 30 + "px";
+  });
+}
+
 
 
 
