@@ -31,6 +31,57 @@ function prevSlide() {
 // HEART SURPRISE GAME (2 TEXT + 3 IMAGES)
 
 const heartsDiv = document.getElementById("hearts");
+// 1. SLIDE LOGIC
+let currentSlide = 0;
+...
+function nextSlide() { ... }
+function prevSlide() { ... }
+
+// 2. EFFECTS
+function slideHeartBurst() { ... }
+function onSlideChange(index) { ... }
+function typeText(...) { ... }
+
+// 3. PASSWORD / MUSIC / GAME
+function checkPassword() { ... }
+function playMusic() { ... }
+...
+
+// 4. HEART GAME INIT
+if (heartsDiv) {
+  ...
+}
+
+/* =========================
+   📱 SWIPE CODE (ADD HERE)
+   VERY BOTTOM OF FILE
+========================= */
+
+let startX = 0;
+let isSwiping = false;
+
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  isSwiping = true;
+}, { passive: true });
+
+document.addEventListener("touchend", e => {
+  if (!isSwiping) return;
+
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  isSwiping = false;
+
+  if (Math.abs(diff) > 80) {
+    if (diff > 0) {
+      nextSlide();   // swipe left
+    } else {
+      prevSlide();   // swipe right
+    }
+  }
+}, { passive: true });
+
 
 if (heartsDiv) {
   heartsDiv.innerHTML = ""; // 🔥 removes old hearts completely
@@ -355,6 +406,7 @@ if (ft && !ft.dataset.done) {
 
   setTimeout(showProposal, 3500); // 🔥 REQUIRED
 }
+
 
 
 
