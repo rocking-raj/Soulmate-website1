@@ -421,7 +421,7 @@ html, body {
   box-sizing: border-box;
 }
 /* 📱 MOBILE PHOTO SLIDE – FINAL FIX */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
 
   .photos {
     display: flex;
@@ -446,6 +446,7 @@ html, body {
     scroll-snap-align: center;
   }
 }
+
 
 
 
