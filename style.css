@@ -446,6 +446,29 @@ html, body {
     scroll-snap-align: center;
   }
 }
+/* 💗 Loading Screen */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #1b1f3b, #0b0f24);
+  color: #ff9ecb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.loader-heart {
+  font-size: 48px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
 
 
 
