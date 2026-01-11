@@ -331,7 +331,7 @@ body.night::before {
 
   .photos img {
     width: 50%;
-    max-width: 300px;
+    max-width: 30px;
     height: auto;
   }
 
@@ -370,6 +370,7 @@ html, body {
   overflow-x: hidden;
   touch-action: manipulation;
 }
+
 
 
 
