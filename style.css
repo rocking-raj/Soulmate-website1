@@ -481,6 +481,10 @@ html, body {
 #noBtn {
   position: relative;
 }
+body.loaded #loader {
+  display: none !important;
+}
+
 
 
 
