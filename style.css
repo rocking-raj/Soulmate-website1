@@ -453,6 +453,19 @@ canvas {
   position: relative;
   z-index: 10;
 }
+/* 🔥 FORCE BUTTONS TO BE CLICKABLE */
+button {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+/* ❌ PREVENT OVERLAYS FROM BLOCKING CLICKS */
+canvas,
+.floating-heart,
+body::before {
+  pointer-events: none !important;
+}
+
 
 
 
