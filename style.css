@@ -380,20 +380,26 @@ html, body {
 @media (max-width: 768px) {
 
   .photos {
-    flex-direction: column;   /* stack vertically */
+    display: flex;
+    flex-direction: row;     /* ✅ horizontal */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 100%;
-    padding: 0;
+    flex-wrap: nowrap;       /* ✅ stay in one row */
+    overflow: hidden;        /* ✅ no overflow */
   }
 
   .photos img {
-    width: 100%;
-    max-width: 280px;   /* 🔥 prevents overflow */
+    width: 30%;              /* ✅ 3 images fit */
+    max-width: 110px;
     height: auto;
-    margin: 0 auto;
-    display: block;
     border-radius: 12px;
+    object-fit: cover;
   }
+
 }
+
 
 
 
