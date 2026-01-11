@@ -261,14 +261,18 @@ document.addEventListener("touchend", e => {
 });
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  if (loader) {
-    setTimeout(() => {
-      loader.style.opacity = "0";
-      loader.style.pointerEvents = "none";
-      setTimeout(() => loader.remove(), 600);
-    }, 1200);
-  }
+
+  if (!loader) return;
+
+  // fade out
+  loader.style.opacity = "0";
+
+  // fully remove after animation
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 700);
 });
+
 
 function showProposal() {
   const box = document.getElementById("proposalBox");
@@ -326,6 +330,7 @@ if (ft && !ft.dataset.done) {
 
   setTimeout(showProposal, 3500); // 🔥 REQUIRED
 }
+
 
 
 
