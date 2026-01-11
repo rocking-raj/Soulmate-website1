@@ -446,45 +446,7 @@ html, body {
     scroll-snap-align: center;
   }
 }
-/* 💗 Loading Screen */
-/* 💗 Loader */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle, #1b1f3b, #0b0f24);
-  color: #ff9ecb;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
-  transition: opacity 0.6s ease;
-}
 
-#loader.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-}
-.proposal-text {
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-#proposalBox button {
-  margin: 8px;
-}
-
-#noBtn {
-  position: relative;
-}
-body.loaded #loader {
-  display: none !important;
-}
 
 
 
