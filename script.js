@@ -339,12 +339,13 @@ function initMobileFeatures() {
     });
   }
 }
+const ft = document.getElementById("finalText");
+
 if (ft && !ft.dataset.done) {
   ft.dataset.done = "1";
   typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
-
-  setTimeout(showProposal, 3500); // 🔥 REQUIRED
 }
+
 function nextSlide() {
   if (currentSlide < totalSlides - 1) {
     currentSlide++;
@@ -360,6 +361,7 @@ function prevSlide() {
 }
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+
 
 
 
