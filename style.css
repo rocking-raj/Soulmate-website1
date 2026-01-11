@@ -468,6 +468,19 @@ html, body {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.3); }
 }
+.proposal-text {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#proposalBox button {
+  margin: 8px;
+}
+
+#noBtn {
+  position: relative;
+}
+
 
 
 
