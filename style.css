@@ -290,5 +290,86 @@ body.night::before {
     opacity: 0;
   }
 }
+/* 📱 MOBILE RESPONSIVE FIX */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .slide {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 90%;
+    max-width: 320px;
+    font-size: 16px;
+    padding: 12px;
+    margin: 10px 0;
+  }
+
+  /* 📸 Photos */
+  .photos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photos img {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  /* ❤️ Heart Game */
+  #hearts {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .heart-box {
+    width: 90px;
+    height: 90px;
+    font-size: 28px;
+  }
+
+  .heart-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 🎶 Video (if used) */
+  video {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ✍️ Final typing text */
+  #finalText {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
 
 
