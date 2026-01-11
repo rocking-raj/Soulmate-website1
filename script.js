@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initMobileFeatures();
 });
+const heartsDiv = document.getElementById("hearts");
 
 
 if (heartsDiv) {
@@ -343,6 +344,7 @@ window.addEventListener("load", () => {
     loader.remove();
   }, 700);
 });
+
 
 
 
