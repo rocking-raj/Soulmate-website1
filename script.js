@@ -6,54 +6,41 @@ const totalSlides = slideItems.length;
 document.addEventListener("DOMContentLoaded", () => {
   initMobileFeatures();
 });
-let heartsDiv = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  heartsDiv = document.getElementById("hearts");
-});
+  const heartsDiv = document.getElementById("hearts");
+  if (!heartsDiv) return;
 
-
-
-if (heartsDiv) {
-  heartsDiv.innerHTML = ""; // 🔥 removes old hearts completely
+  heartsDiv.innerHTML = "";
 
   const surprises = [
     { type: "text", content: "💌 You make my world softer." },
     { type: "text", content: "❤️ My favorite place is with you." },
-    { type: "image", content: "/photos/s1.jpg" },
-    { type: "image", content: "/photos/s2.jpg" },
-    { type: "image", content: "/photos/s3.jpg" }
+    { type: "image", content: "photos/s1.jpg" },
+    { type: "image", content: "photos/s2.jpg" },
+    { type: "image", content: "photos/s3.jpg" }
   ];
 
-  // Shuffle order
   surprises.sort(() => Math.random() - 0.5);
 
-  let opened = 0;
-
-surprises.forEach(item => {
-
+  surprises.forEach(item => {
     const heart = document.createElement("div");
     heart.className = "heart-box";
     heart.innerHTML = "❤️";
 
-    heart.onclick = () => {
-      heart.onclick = null; // open only once
-      opened++;
-if (opened === surprises.length) {
-  alert("💖 You’ve seen all my surprises.");
-}
-
-
+    heart.addEventListener("click", () => {
+      heart.style.pointerEvents = "none";
       if (item.type === "text") {
-        heart.innerHTML = `<p style="font-size:16px;">${item.content}</p>`;
+        heart.innerHTML = `<p>${item.content}</p>`;
       } else {
-        heart.innerHTML = `<img src="${item.content}">`;
+        heart.innerHTML = `<img src="${item.content}" />`;
       }
-    };
+    });
 
     heartsDiv.appendChild(heart);
   });
-}
+});
+
 function checkPassword() {
   const input = document.getElementById("password");
   const secret = document.getElementById("secretMessage");
@@ -128,19 +115,6 @@ function simpleFirework() {
   }
 }
 simpleFirework();
-function onSlideChange(index) {
-  const lastIndex = totalSlides - 1;
-
-  if (index === lastIndex) {
-    const ft = document.getElementById("finalText");
-
-    if (ft && !ft.dataset.done) {
-      ft.dataset.done = "1";
-      typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
-    }
-  }
-}
-
 function startCelebration() {
   for (let i = 0; i < 20; i++) {
     const s = document.createElement("div");
@@ -190,12 +164,6 @@ if (ft && !ft.dataset.done) {
 
   }
 }
-function updateSlide() {
-  slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
-}
-
-
-
 function updateSlide() {
   const slideWidth = window.innerWidth;
   slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
@@ -280,19 +248,6 @@ document.addEventListener("touchend", e => {
       prevSlide(); // swipe right
     }
   }
-});
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-
-  if (!loader) return;
-
-  // fade out
-  loader.style.opacity = "0";
-
-  // fully remove after animation
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 700);
 });
 
 
@@ -399,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
     heartsDiv.appendChild(heart);
   });
 });
+
 
 
 
