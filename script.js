@@ -349,6 +349,12 @@ window.addEventListener("load", () => {
     loader.remove();
   }, 700);
 });
+// 🔥 INITIALIZE FIRST SLIDE AFTER PAGE LOAD
+window.addEventListener("load", () => {
+  updateSlide();
+});
+
+
 
 
 
