@@ -20,9 +20,9 @@ if (heartsDiv) {
   const surprises = [
     { type: "text", content: "💌 You make my world softer." },
     { type: "text", content: "❤️ My favorite place is with you." },
-    { type: "image", content: "photos/s1.jpg" },
-    { type: "image", content: "photos/s2.jpg" },
-    { type: "image", content: "photos/s3.jpg" }
+    { type: "image", content: "/photos/s1.jpg" },
+    { type: "image", content: "/photos/s2.jpg" },
+    { type: "image", content: "/photos/s3.jpg" }
   ];
 
   // Shuffle order
@@ -399,6 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
     heartsDiv.appendChild(heart);
   });
 });
+
 
 
 
