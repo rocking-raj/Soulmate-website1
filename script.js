@@ -166,11 +166,12 @@ function onSlideChange(index) {
     document.body.classList.add("night");
     playMusic();   // 🎶 MUSIC STARTS HERE
 
-    const ft = document.getElementById("finalText");
-    if (ft && !ft.dataset.done) {
-      ft.dataset.done = "1";
-      typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
-    }
+   const ft = document.getElementById("finalText");
+
+if (ft && !ft.dataset.done) {
+  ft.dataset.done = "1";
+  typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
+}
   } else {
     document.body.classList.remove("night");
     stopMusic();   // 🔇 MUSIC STOPS HERE
@@ -339,12 +340,7 @@ function initMobileFeatures() {
     });
   }
 }
-const ft = document.getElementById("finalText");
 
-if (ft && !ft.dataset.done) {
-  ft.dataset.done = "1";
-  typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
-}
 
 function nextSlide() {
   if (currentSlide < totalSlides - 1) {
@@ -361,6 +357,7 @@ function prevSlide() {
 }
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+
 
 
 
