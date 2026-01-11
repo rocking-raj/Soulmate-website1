@@ -343,6 +343,46 @@ document.addEventListener("DOMContentLoaded", () => {
     heartsDiv.appendChild(heart);
   });
 });
+// 🧪 HEART TEST – ISOLATED (DO NOT EDIT)
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("hearts-test");
+  if (!container) {
+    console.log("❌ hearts-test not found");
+    return;
+  }
+
+  const data = [
+    { type: "text", value: "❤️ Test Text 1" },
+    { type: "text", value: "💌 Test Text 2" },
+    { type: "image", value: "photos/s1.jpg" },
+    { type: "image", value: "photos/s2.jpg" },
+    { type: "image", value: "photos/s3.jpg" }
+  ];
+
+  data.forEach(item => {
+    const box = document.createElement("div");
+    box.className = "test-heart";
+    box.textContent = "❤️";
+
+    box.onclick = () => {
+      box.innerHTML = "";
+      if (item.type === "text") {
+        box.textContent = item.value;
+      } else {
+        const img = document.createElement("img");
+        img.src = item.value;
+        img.onload = () => console.log("✅ image loaded:", item.value);
+        img.onerror = () => console.log("❌ image failed:", item.value);
+        box.appendChild(img);
+      }
+    };
+
+    container.appendChild(box);
+  });
+
+  console.log("✅ heart test initialized");
+});
+
 
 
 
