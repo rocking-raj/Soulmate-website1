@@ -267,6 +267,34 @@ function stopMusic() {
   if (!bgMusic) return;
   bgMusic.pause();
 }
+let startX = 0;
+
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", e => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      nextSlide(); // swipe left
+    } else {
+      prevSlide(); // swipe right
+    }
+  }
+});
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 1500);
+  }
+});
+
+
 
 
 
