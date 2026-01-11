@@ -70,13 +70,6 @@ button:hover {
   gap: 15px;
 }
 
-.photos img {
-  width: 80px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
 #hearts {
   display: flex;
   justify-content: center;
@@ -365,9 +358,12 @@ html, body {
   touch-action: manipulation;
 }
 .slide {
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;   /* 🔒 absolute lock */
   box-sizing: border-box;
-  overflow: hidden;   /* 🔥 IMPORTANT */
 }
+
 /* 📸 PHOTO SLIDE FIX */
 .photos {
   display: flex;
@@ -399,6 +395,30 @@ html, body {
   }
 
 }
+/* 📸 MOBILE PHOTO SLIDE – NO OVERFLOW GUARANTEE */
+@media (max-width: 768px) {
+
+  .photos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* 🔥 distributes evenly */
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;                /* small safe padding */
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .photos img {
+    flex: 1 1 0;                    /* 🔥 equal width */
+    max-width: calc(33.33% - 6px);  /* 🔥 hard math */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+
 
 
 
