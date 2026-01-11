@@ -82,11 +82,12 @@
 
   <p id="wrong" style="color:red;"></p>
 
-  <button onclick="prevSlide()">⬅️ Back</button>
-  <p id="finalText" class="typewriter glow"></p>
-  <button id="proposalBtn" style="display:none;">
-  Will you be mine forever? 💍
-</button>
+  <div id="proposalBox" style="display:none;">
+  <p class="proposal-text">Will you be mine forever? 💍</p>
+  <button onclick="sayYes()">YES 💖</button>
+  <button id="noBtn">NO 🙈</button>
+</div>
+
 
 
 </div>
@@ -100,6 +101,7 @@
  <audio id="bgMusic" src="songs/love.mp3" loop></audio>
 
 </body>
+
 
 
 
