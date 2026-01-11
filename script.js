@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", () => {
+  initMobileFeatures();
+});
 
 let currentSlide = 0;
 const slides = document.querySelector(".slides");
@@ -289,10 +292,13 @@ window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
   if (loader) {
     setTimeout(() => {
-      loader.style.display = "none";
-    }, 1500);
+      loader.style.opacity = "0";
+      loader.style.pointerEvents = "none";
+      setTimeout(() => loader.remove(), 600);
+    }, 1200);
   }
 });
+
 function showProposal() {
   const box = document.getElementById("proposalBox");
   if (box) box.style.display = "block";
@@ -308,6 +314,50 @@ if (noBtn) {
     noBtn.style.top = Math.random() * 60 - 30 + "px";
   });
 }
+function initMobileFeatures() {
+
+  /* 📱 SWIPE SUPPORT */
+  let startX = 0;
+
+  document.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  document.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 60) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  });
+
+  /* 💍 NO BUTTON ESCAPE */
+  const noBtn = document.getElementById("noBtn");
+  if (noBtn) {
+    noBtn.addEventListener("mouseenter", () => {
+      noBtn.style.transform =
+        `translate(${Math.random() * 100 - 50}px, ${Math.random() * 60 - 30}px)`;
+    });
+    noBtn.addEventListener("touchstart", () => {
+      noBtn.style.transform =
+        `translate(${Math.random() * 100 - 50}px, ${Math.random() * 60 - 30}px)`;
+    });
+  }
+}
+if (ft && !ft.dataset.done) {
+  ft.dataset.done = "1";
+  typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
+
+  setTimeout(showProposal, 3500); // 🔥 REQUIRED
+}
+
+
+
 
 
 
