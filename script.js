@@ -7,20 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileFeatures();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const heartsDiv = document.getElementById("hearts");
-  if (!heartsDiv) return;
-
-  heartsDiv.innerHTML = "";
-
-  const surprises = [
-    { type: "text", content: "💌 You make my world softer." },
-    { type: "text", content: "❤️ My favorite place is with you." },
-    { type: "image", content: "photos/s1.jpg" },
-    { type: "image", content: "photos/s2.jpg" },
-    { type: "image", content: "photos/s3.jpg" }
-  ];
-
   surprises.sort(() => Math.random() - 0.5);
 
   surprises.forEach(item => {
@@ -320,40 +306,45 @@ window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
 document.addEventListener("DOMContentLoaded", () => {
   const heartsDiv = document.getElementById("hearts");
-
   if (!heartsDiv) return;
 
   heartsDiv.innerHTML = "";
 
   const surprises = [
-    { type: "text", content: "💌 You make my world brighter." },
+    { type: "text", content: "💌 You make my world softer." },
     { type: "text", content: "❤️ My favorite place is with you." },
-    { type: "image", content: "images/surprise1.jpg" },
-    { type: "image", content: "images/surprise2.jpg" },
-    { type: "image", content: "images/surprise3.jpg" }
+    { type: "image", content: "photos/s1.jpg" },
+    { type: "image", content: "photos/s2.jpg" },
+    { type: "image", content: "photos/s3.jpg" }
   ];
 
-  // shuffle hearts
   surprises.sort(() => Math.random() - 0.5);
 
   surprises.forEach(item => {
     const heart = document.createElement("div");
     heart.className = "heart-box";
-    heart.innerHTML = "❤️";
+    heart.textContent = "❤️";
 
-    heart.addEventListener("click", () => {
+    heart.onclick = () => {
       heart.style.pointerEvents = "none";
-
       if (item.type === "text") {
-        heart.innerHTML = `<p>${item.content}</p>`;
+        heart.textContent = item.content;
       } else {
-        heart.innerHTML = `<img src="${item.content}" alt="">`;
+        const img = document.createElement("img");
+        img.src = item.content;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "cover";
+        heart.innerHTML = "";
+        heart.appendChild(img);
       }
-    });
+    };
 
     heartsDiv.appendChild(heart);
   });
 });
+
+
 
 
 
