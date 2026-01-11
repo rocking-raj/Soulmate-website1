@@ -330,6 +330,20 @@ if (ft && !ft.dataset.done) {
 
   setTimeout(showProposal, 3500); // 🔥 REQUIRED
 }
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  if (!loader) return;
+
+  // fade out
+  loader.classList.add("hidden");
+
+  // fully remove from DOM
+  setTimeout(() => {
+    loader.remove();
+  }, 700);
+});
+
 
 
 
