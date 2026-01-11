@@ -196,17 +196,15 @@ body.night .heart-box {
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 20px rgba(255, 158, 203, 0.4);
 }
-body.night::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-    radial-gradient(2px 2px at 80% 40%, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 50% 70%, #fff, transparent);
-  opacity: 0.3;
-  pointer-events: none;
+/* 🌙 SAFE NIGHT BACKGROUND (NON-BLOCKING) */
+.night {
+  background:
+    radial-gradient(circle at top, #1b1f3b, #0b0f24),
+    radial-gradient(2px 2px at 20% 30%, #fff 40%, transparent 41%),
+    radial-gradient(2px 2px at 80% 40%, #fff 40%, transparent 41%),
+    radial-gradient(1.5px 1.5px at 50% 70%, #fff 40%, transparent 41%);
 }
+
 .shooting-star {
   position: fixed;
   width: 120px;
@@ -465,6 +463,13 @@ canvas,
 body::before {
   pointer-events: none !important;
 }
+/* 🔥 GUARANTEE INTERACTION */
+.slide,
+button {
+  position: relative;
+  z-index: 50;
+}
+
 
 
 
