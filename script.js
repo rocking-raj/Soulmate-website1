@@ -1,90 +1,32 @@
-* {
-  box-sizing: border-box;
+let currentSlide = 0;
+
+function nextSlide() {
+  currentSlide++;
+  document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}vw)`;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #fff;
+function reveal(id) {
+  document.getElementById(id).classList.remove('hidden');
 }
 
-.viewport {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+function unlock() {
+  const pass = document.getElementById('password').value;
+  if (pass === '12:17') {
+    document.getElementById('secretMessage').classList.remove('hidden');
+  } else {
+    alert('Wrong password 💔');
+  }
 }
 
-.slider {
-  display: flex;
-  flex-direction: row;
-  width: 500vw;
-  height: 100vh;
-  transition: transform 0.8s ease-in-out;
-}
+// Ensure music plays after user interaction (mobile safe)
+document.body.addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  if (music.paused) music.play();
+});
 
-.slide {
-  width: 100vw;
-  height: 100vh;
-  flex: 0 0 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
 
-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 20px;
-  background: #ff4081;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
 
-.hearts {
-  display: flex;
-  gap: 15px;
-  font-size: 40px;
-  cursor: pointer;
-}
 
-.hidden {
-  display: none;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.gallery img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  margin: 5px;
-  border-radius: 10px;
-}
-
-.password-box input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-
-.password-box button {
-  margin-left: 10px;
-}
 
 
 
