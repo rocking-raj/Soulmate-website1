@@ -55,48 +55,27 @@ button {
   cursor: pointer;
 }
 
-/* THIS IS CRITICAL */
+/* ABSOLUTE KILL SWITCH */
 .hidden {
   display: none !important;
 }
 
-.gallery {
+/* HEART CONTENT CONTAINER */
+.heart-content {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 20px;
 }
 
-.gallery img {
-  width: 95vw;
+/* IMAGE SIZE */
+.heart-content img {
+  width: 92vw;
   max-width: 420px;
   height: auto;
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow: 0 0 30px rgba(255, 64, 129, 0.6);
 }
-
-.password-box input {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-
-.password-box button {
-  margin-left: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
