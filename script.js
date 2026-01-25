@@ -1,104 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Love ❤️</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+let currentSlide = 0;
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="song.mp3" type="audio/mpeg" />
-  </audio>
+function nextSlide() {
+  currentSlide++;
+  document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}vw)`;
+}
 
-  <div class="slider" id="slider">
+function reveal(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
 
-    <!-- Slide 1 -->
-    <div class="slide">
-      <h1>Hi My Love ❤️</h1>
-      <p>This little website is just for you.</p>
-      <button onclick="nextSlide()">Next</button>
-    </div>
+function unlock() {
+  const pass = document.getElementById('password').value;
+  if (pass === 'love123') {
+    document.getElementById('secretMessage').classList.remove('hidden');
+  } else {
+    alert('Wrong password 💔');
+  }
+}
 
-    <!-- Slide 2: Hearts -->
-    <div class="slide">
-      <h2>Tap the Hearts 💕</h2>
-      <div class="hearts">
-        <span onclick="reveal('h1')">❤️</span>
-        <span onclick="reveal('h2')">❤️</span>
-        <span onclick="reveal('h3')">❤️</span>
-        <span onclick="reveal('h4')">❤️</span>
-        <span onclick="reveal('h5')">❤️</span>
-      </div>
-
-      <div id="h1" class="hidden gallery">
-        <img src="photo1.jpg" />
-      </div>
-      <div id="h2" class="hidden gallery">
-        <img src="photo2.jpg" />
-      </div>
-      <div id="h3" class="hidden gallery">
-        <img src="photo3.jpg" />
-      </div>
-      <div id="h4" class="hidden">
-        <p>"You are my today and all of my tomorrows."</p>
-      </div>
-      <div id="h5" class="hidden">
-        <p>"Every love story is beautiful, but ours is my favorite."</p>
-      </div>
-
-      <button onclick="nextSlide()">Next</button>
-    </div>
-
-    <!-- Slide 3: 3 Photos -->
-    <div class="slide">
-      <h2>Our Memories 📸</h2>
-      <div class="gallery">
-        <img src="photo4.jpg" />
-        <img src="photo5.jpg" />
-        <img src="photo6.jpg" />
-      </div>
-      <button onclick="nextSlide()">Next</button>
-    </div>
-
-    <!-- Slide 4: Video -->
-    <div class="slide">
-      <h2>Just for You 🎥</h2>
-      <video controls width="250">
-        <source src="video.mp4" type="video/mp4" />
-      </video>
-      <button onclick="nextSlide()">Next</button>
-    </div>
-
-    <!-- Slide 5: Password -->
-    <div class="slide">
-      <h2>Secret Message 🔐</h2>
-      <div class="password-box">
-        <input type="password" id="password" placeholder="Enter password" />
-        <button onclick="unlock()">Unlock</button>
-      </div>
-      <p id="secretMessage" class="hidden">I love you more than words can say ❤️</p>
-    </div>
-
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
+// Ensure music plays after user interaction (mobile safe)
+document.body.addEventListener('click', () => {
+  const music = document.getElementById('bgMusic');
+  if (music.paused) music.play();
+});
 
 
 
