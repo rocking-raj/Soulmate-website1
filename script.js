@@ -1,387 +1,93 @@
-let currentSlide = 0;
-const slides = document.querySelector(".slides");
-const slideItems = document.querySelectorAll(".slide");
-const totalSlides = slideItems.length;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love ❤️</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-document.addEventListener("DOMContentLoaded", () => {
-  initMobileFeatures();
-});
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg" />
+  </audio>
 
-  surprises.sort(() => Math.random() - 0.5);
+  <div class="slider" id="slider">
 
-  surprises.forEach(item => {
-    const heart = document.createElement("div");
-    heart.className = "heart-box";
-    heart.innerHTML = "❤️";
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Hi My Love ❤️</h1>
+      <p>This little website is just for you.</p>
+      <button onclick="nextSlide()">Next</button>
+    </div>
 
-    heart.addEventListener("click", () => {
-      heart.style.pointerEvents = "none";
-      if (item.type === "text") {
-        heart.innerHTML = `<p>${item.content}</p>`;
-      } else {
-        heart.innerHTML = `<img src="${item.content}" />`;
-      }
-    });
+    <!-- Slide 2: Hearts -->
+    <div class="slide">
+      <h2>Tap the Hearts 💕</h2>
+      <div class="hearts">
+        <span onclick="reveal('h1')">❤️</span>
+        <span onclick="reveal('h2')">❤️</span>
+        <span onclick="reveal('h3')">❤️</span>
+        <span onclick="reveal('h4')">❤️</span>
+        <span onclick="reveal('h5')">❤️</span>
+      </div>
 
-    heartsDiv.appendChild(heart);
-  });
-});
+      <div id="h1" class="hidden gallery">
+        <img src="photo1.jpg" />
+      </div>
+      <div id="h2" class="hidden gallery">
+        <img src="photo2.jpg" />
+      </div>
+      <div id="h3" class="hidden gallery">
+        <img src="photo3.jpg" />
+      </div>
+      <div id="h4" class="hidden">
+        <p>"You are my today and all of my tomorrows."</p>
+      </div>
+      <div id="h5" class="hidden">
+        <p>"Every love story is beautiful, but ours is my favorite."</p>
+      </div>
 
-function checkPassword() {
-  const input = document.getElementById("password");
-  const secret = document.getElementById("secretMessage");
-  const wrong = document.getElementById("wrong");
+      <button onclick="nextSlide()">Next</button>
+    </div>
 
-  if (input.value === "12:17") {
-    secret.style.display = "block";
-    wrong.innerHTML = "";
+    <!-- Slide 3: 3 Photos -->
+    <div class="slide">
+      <h2>Our Memories 📸</h2>
+      <div class="gallery">
+        <img src="photo4.jpg" />
+        <img src="photo5.jpg" />
+        <img src="photo6.jpg" />
+      </div>
+      <button onclick="nextSlide()">Next</button>
+    </div>
 
-    launchFireworks();
-    startFloatingHearts();
+    <!-- Slide 4: Video -->
+    <div class="slide">
+      <h2>Just for You 🎥</h2>
+      <video controls width="250">
+        <source src="video.mp4" type="video/mp4" />
+      </video>
+      <button onclick="nextSlide()">Next</button>
+    </div>
 
-    // optional auto stop
-    setTimeout(stopFireworks, 7000);
-    setTimeout(stopFloatingHearts, 7000);
-  } else {
-    wrong.innerHTML = "Wrong password 😄";
-  }
-}
+    <!-- Slide 5: Password -->
+    <div class="slide">
+      <h2>Secret Message 🔐</h2>
+      <div class="password-box">
+        <input type="password" id="password" placeholder="Enter password" />
+        <button onclick="unlock()">Unlock</button>
+      </div>
+      <p id="secretMessage" class="hidden">I love you more than words can say ❤️</p>
+    </div>
 
-let fireworkInterval = null;
+  </div>
 
-function launchFireworks() {
-  if (fireworkInterval) return; // prevent double start
+  <script src="script.js"></script>
+</body>
+</html>
 
-  fireworkInterval = setInterval(() => {
-    confetti({
-      particleCount: 80,
-      spread: 100,
-      origin: {
-        x: Math.random(),
-        y: Math.random() * 0.5
-      }
-    });
-  }, 600);
-}
-function stopFireworks() {
-  clearInterval(fireworkInterval);
-  fireworkInterval = null;
-}
-
-let heartInterval = null;
-
-function startFloatingHearts() {
-  if (heartInterval) return;
-
-  heartInterval = setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "floating-heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 4000);
-  }, 300);
-}
-function stopFloatingHearts() {
-  clearInterval(heartInterval);
-  heartInterval = null;
-}
-
-function simpleFirework() {
-  for (let i = 0; i < 40; i++) {
-    const s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.top = "60vh";
-    document.body.appendChild(s);
-
-    setTimeout(() => s.remove(), 1500);
-  }
-}
-simpleFirework();
-function startCelebration() {
-  for (let i = 0; i < 20; i++) {
-    const s = document.createElement("div");
-    s.style.position = "fixed";
-    s.style.width = "8px";
-    s.style.height = "8px";
-    s.style.borderRadius = "50%";
-    s.style.background = "gold";
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.top = Math.random() * 100 + "vh";
-    s.style.zIndex = "99999";
-    document.body.appendChild(s);
-
-    s.animate(
-      [
-        { transform: "scale(1)", opacity: 1 },
-        { transform: "scale(6)", opacity: 0 }
-      ],
-      { duration: 1200, easing: "ease-out" }
-    );
-
-    setTimeout(() => s.remove(), 1200);
-  }
-}
-function onSlideChange(index) {
-  const lastIndex = totalSlides - 1;
-
-  if (index === lastIndex) {
-    document.body.classList.add("night");
-    playMusic();   // 🎶 MUSIC STARTS HERE
-
-   const ft = document.getElementById("finalText");
-
-if (ft && !ft.dataset.done) {
-  ft.dataset.done = "1";
-  typeText(ft, "I choose you. Today. Tomorrow. Always. 💍❤️");
-}
-  } else {
-    document.body.classList.remove("night");
-    stopMusic();   // 🔇 MUSIC STOPS HERE
-    
-    // 🎆 Start fireworks
-    startCelebration();
-
-    // ❤️ Start floating hearts
-    startFloatingHearts();
-
-  }
-}
-function updateSlide() {
-  const slideWidth = window.innerWidth;
-  slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-
-  slideHeartBurst();
-  onSlideChange(currentSlide);
-}
-
-function slideHeartBurst() {
-  for (let i = 0; i < 8; i++) {
-    const heart = document.createElement("div");
-    heart.innerHTML = "❤️";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "70vh";
-    heart.style.fontSize = "24px";
-    heart.style.zIndex = "9999";
-    heart.style.pointerEvents = "none";
-
-    document.body.appendChild(heart);
-
-    heart.animate(
-      [
-        { transform: "translateY(0) scale(1)", opacity: 1 },
-        { transform: "translateY(-150px) scale(1.5)", opacity: 0 }
-      ],
-      {
-        duration: 1200,
-        easing: "ease-out"
-      }
-    );
-
-    setTimeout(() => heart.remove(), 1200);
-  }
-}
-
-function shootingStar() {
-  const star = document.createElement("div");
-  star.className = "shooting-star";
-  star.style.top = Math.random() * 40 + "vh";
-  star.style.left = "-30vw";
-  document.body.appendChild(star);
-  setTimeout(() => star.remove(), 1200);
-}
-function showProposal() {
-  const btn = document.getElementById("proposalBtn");
-  if (btn) btn.style.display = "inline-block";
-}
-setTimeout(showProposal, 3500);
-// 🎶 Background Music (SAFE VERSION)
-
-let bgMusic;
-
-document.addEventListener("DOMContentLoaded", () => {
-  bgMusic = document.getElementById("bgMusic");
-});
-
-function playMusic() {
-  if (!bgMusic) return;
-  bgMusic.volume = 0.5;
-  bgMusic.play().catch(() => {});
-}
-
-function stopMusic() {
-  if (!bgMusic) return;
-  bgMusic.pause();
-}
-let startX = 0;
-
-document.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-});
-
-document.addEventListener("touchend", e => {
-  const endX = e.changedTouches[0].clientX;
-  const diff = startX - endX;
-
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) {
-      nextSlide(); // swipe left
-    } else {
-      prevSlide(); // swipe right
-    }
-  }
-});
-
-
-function showProposal() {
-  const box = document.getElementById("proposalBox");
-  if (box) box.style.display = "block";
-}
-
-function sayYes() {
-  alert("She said YES 💍❤️");
-}
-const noBtn = document.getElementById("noBtn");
-if (noBtn) {
-  noBtn.addEventListener("mouseenter", () => {
-    noBtn.style.left = Math.random() * 100 - 50 + "px";
-    noBtn.style.top = Math.random() * 60 - 30 + "px";
-  });
-}
-function initMobileFeatures() {
-
-  /* 📱 SWIPE SUPPORT */
-  let startX = 0;
-
-  document.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-  });
-
-  document.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-
-    if (Math.abs(diff) > 60) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-  });
-
-  /* 💍 NO BUTTON ESCAPE */
-  const noBtn = document.getElementById("noBtn");
-  if (noBtn) {
-    noBtn.addEventListener("mouseenter", () => {
-      noBtn.style.transform =
-        `translate(${Math.random() * 100 - 50}px, ${Math.random() * 60 - 30}px)`;
-    });
-    noBtn.addEventListener("touchstart", () => {
-      noBtn.style.transform =
-        `translate(${Math.random() * 100 - 50}px, ${Math.random() * 60 - 30}px)`;
-    });
-  }
-}
-
-
-function nextSlide() {
-  if (currentSlide < totalSlides - 1) {
-    currentSlide++;
-    updateSlide();
-  }
-}
-
-function prevSlide() {
-  if (currentSlide > 0) {
-    currentSlide--;
-    updateSlide();
-  }
-}
-window.nextSlide = nextSlide;
-window.prevSlide = prevSlide;
-document.addEventListener("DOMContentLoaded", () => {
-  const heartsDiv = document.getElementById("hearts");
-  if (!heartsDiv) return;
-
-  heartsDiv.innerHTML = "";
-
-  const surprises = [
-    { type: "text", content: "💌 You make my world softer." },
-    { type: "text", content: "❤️ My favorite place is with you." },
-    { type: "image", content: "photos/s1.jpg" },
-    { type: "image", content: "photos/s2.jpg" },
-    { type: "image", content: "photos/s3.jpg" }
-  ];
-
-  surprises.sort(() => Math.random() - 0.5);
-
-  surprises.forEach(item => {
-    const heart = document.createElement("div");
-    heart.className = "heart-box";
-    heart.textContent = "❤️";
-
-    heart.onclick = () => {
-      heart.style.pointerEvents = "none";
-      if (item.type === "text") {
-        heart.textContent = item.content;
-      } else {
-        const img = document.createElement("img");
-        img.src = item.content;
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.objectFit = "cover";
-        heart.innerHTML = "";
-        heart.appendChild(img);
-      }
-    };
-
-    heartsDiv.appendChild(heart);
-  });
-});
-// 🧪 HEART TEST – ISOLATED (DO NOT EDIT)
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("hearts-test");
-  if (!container) {
-    console.log("❌ hearts-test not found");
-    return;
-  }
-
-  const data = [
-    { type: "text", value: "❤️ Test Text 1" },
-    { type: "text", value: "💌 Test Text 2" },
-    { type: "image", value: "photos/s1.jpg" },
-    { type: "image", value: "photos/s2.jpg" },
-    { type: "image", value: "photos/s3.jpg" }
-  ];
-
-  data.forEach(item => {
-    const box = document.createElement("div");
-    box.className = "test-heart";
-    box.textContent = "❤️";
-
-    box.onclick = () => {
-      box.innerHTML = "";
-      if (item.type === "text") {
-        box.textContent = item.value;
-      } else {
-        const img = document.createElement("img");
-        img.src = item.value;
-        img.onload = () => console.log("✅ image loaded:", item.value);
-        img.onerror = () => console.log("❌ image failed:", item.value);
-        box.appendChild(img);
-      }
-    };
-
-    container.appendChild(box);
-  });
-
-  console.log("✅ heart test initialized");
-});
 
 
 
