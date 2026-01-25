@@ -68,14 +68,14 @@ button {
   margin-top: 20px;
 }
 
-/* IMAGE SIZE */
 .heart-content img {
-  width: 92vw;
-  max-width: 420px;
+  width: 75vw;        /* smaller on mobile */
+  max-width: 320px;  /* safe size */
   height: auto;
   border-radius: 18px;
-  box-shadow: 0 0 30px rgba(255, 64, 129, 0.6);
+  box-shadow: 0 0 25px rgba(255, 64, 129, 0.5);
 }
+
 
 
 
