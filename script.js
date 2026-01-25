@@ -11,7 +11,7 @@ function reveal(id) {
 
 function unlock() {
   const pass = document.getElementById('password').value;
-  if (pass === 'love123') {
+  if (pass === '12:17') {
     document.getElementById('secretMessage').classList.remove('hidden');
   } else {
     alert('Wrong password 💔');
@@ -23,6 +23,7 @@ document.body.addEventListener('click', () => {
   const music = document.getElementById('bgMusic');
   if (music.paused) music.play();
 });
+
 
 
 
