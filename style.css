@@ -62,18 +62,20 @@ button {
 }
 
 .gallery {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  margin-top: 15px;
 }
 
 .gallery img {
-  width: 90px;
-  height: 90px;
+  width: 90vw;        /* almost full screen */
+  max-width: 360px;  /* prevent too big on tablets */
+  height: auto;
   object-fit: cover;
-  margin: 5px;
-  border-radius: 10px;
+  border-radius: 16px;
 }
+
 
 .password-box input {
   padding: 10px;
@@ -85,6 +87,7 @@ button {
 .password-box button {
   margin-left: 10px;
 }
+
 
 
 
