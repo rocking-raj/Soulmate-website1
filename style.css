@@ -75,6 +75,25 @@ button {
   border-radius: 18px;
   box-shadow: 0 0 25px rgba(255, 64, 129, 0.5);
 }
+/* SLIDE 3 LAYOUT */
+.gallery.three {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 20px;
+}
+
+/* SLIDE 3 IMAGE SIZE */
+.gallery.three img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(255, 64, 129, 0.4);
+}
+
 
 
 
