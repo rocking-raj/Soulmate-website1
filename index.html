@@ -30,33 +30,39 @@
 
     <!-- Slide 2: Hearts -->
     <div class="slide">
-      <h2>Tap the Hearts 💕</h2>
-      <div class="hearts">
-        <span onclick="reveal('h1')">❤️</span>
-        <span onclick="reveal('h2')">❤️</span>
-        <span onclick="reveal('h3')">❤️</span>
-        <span onclick="reveal('h4')">❤️</span>
-        <span onclick="reveal('h5')">❤️</span>
-      </div>
+  <h2>Tap the Hearts 💕</h2>
 
-      <div id="h1" class="hidden">
-        <img src="photos/Photo1.jpg" />
-      </div>
-      <div id="h2" class="hidden">
-         <img src="photos/Photo3.jpg" />
-      </div>
-      <div id="h3" class="hidden">
-         <img src="photos/Photo4.jpg" />
-      </div>
-      <div id="h4" class="hidden">
-        <p>"You are my today and all of my tomorrows."</p>
-      </div>
-      <div id="h5" class="hidden">
-        <p>"Every love story is beautiful, but ours is my favorite."</p>
-      </div>
+  <div class="hearts">
+    <span onclick="reveal('h1')">❤️</span>
+    <span onclick="reveal('h2')">❤️</span>
+    <span onclick="reveal('h3')">❤️</span>
+    <span onclick="reveal('h4')">❤️</span>
+    <span onclick="reveal('h5')">❤️</span>
+  </div>
 
-      <button onclick="nextSlide()">Next</button>
-    </div>
+  <div id="h1" class="heart-content hidden">
+    <img src="photos/Photo1.jpg">
+  </div>
+
+  <div id="h2" class="heart-content hidden">
+    <img src="photos/Photo3.jpg">
+  </div>
+
+  <div id="h3" class="heart-content hidden">
+    <img src="photos/Photo4.jpg">
+  </div>
+
+  <div id="h4" class="heart-content hidden">
+    <p>"You are my today and all of my tomorrows."</p>
+  </div>
+
+  <div id="h5" class="heart-content hidden">
+    <p>"Every love story is beautiful, but ours is my favorite."</p>
+  </div>
+
+  <button onclick="nextSlide()">Next</button>
+</div>
+
 
     <!-- Slide 3: 3 Photos -->
     <div class="slide">
@@ -94,6 +100,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
