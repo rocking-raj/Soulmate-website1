@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -23,7 +27,6 @@ body {
   justify-content: center;
   text-align: center;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 button {
@@ -48,7 +51,14 @@ button {
   display: none;
 }
 
-.gallery img, .gallery video {
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img,
+.gallery video {
   width: 90px;
   height: 90px;
   object-fit: cover;
