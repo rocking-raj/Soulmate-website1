@@ -6,15 +6,14 @@ function nextSlide() {
 }
 
 function reveal(id) {
-  // Hide all heart content first
   const all = ["h1", "h2", "h3", "h4", "h5"];
   all.forEach(x => {
     document.getElementById(x).classList.add("hidden");
   });
 
-  // Show only the clicked one
   document.getElementById(id).classList.remove("hidden");
 }
+
 
 
 function unlock() {
@@ -31,6 +30,7 @@ document.body.addEventListener('click', () => {
   const music = document.getElementById('bgMusic');
   if (music.paused) music.play();
 });
+
 
 
 
